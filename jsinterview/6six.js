@@ -109,3 +109,29 @@ names.sort((a,b) => b.localeCompare(a));
 console.log("names : ", names);
 names.sort((a,b) => a.localeCompare(b));
 console.log("names : ", names);
+
+
+// adding GST in prices 
+var  prices = [1000 , 1200 , 2000 , 4000 , 5000 , 7000]
+const pricewithTax = prices.map(price => price + 0.18 * price);
+console.log("Price with Tax : " , pricewithTax);
+
+var arrayClone = [...pricewithTax]
+console.log("arrayClone = " , arrayClone);
+
+
+
+// formatted prices 
+prices = [1024587 , 120000 , 105400 , 500000]
+console.log((10098767).toLocaleString('hi'))
+const FormattedPrices = prices.map((prices)=>`Rs. ` + prices.toLocaleString('hi'))
+console.log("FormattedPrices = " , FormattedPrices);
+
+
+// some and every method of array 
+prices = [ 1001 , 1200 , 1300 , 1500 , 2000 ]
+console.log(`every prices greater 1000 ` , prices.every(e=>e>1000))
+console.log(`every prices greater 1300 ` , prices.every(e=>e>1300))
+console.log(`some prices greater 1300 ` , prices.some(e=>e>1300))
+console.log(`some prices lesser 1100 ` , prices.some(e=>e<1100))
+
