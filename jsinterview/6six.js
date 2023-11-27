@@ -86,3 +86,26 @@ const array1 = arr.reduce((accumulator , element , index )=>{
     return accumulator
 } , [])
 console.log("Array1 = " , array1)
+
+
+// sorting of the array
+arr.sort()
+console.log(" Array after sorting = " , arr);
+
+// accending order 
+arr.sort((a,b) => a-b);
+console.log("Acc. sorting = " , arr);
+
+arr.sort((a,b) => b-a);
+console.log("Decs. sorting = " , arr);
+
+var names = [ 'sagar','ram' , 'shyam' , 'amit' , 'ajay' , 'tim']
+names.sort()
+
+console.log('sagar'.localeCompare('amit'))
+
+// sorting the names 
+names.sort((a,b) => b.localeCompare(a));
+console.log("names : ", names);
+names.sort((a,b) => a.localeCompare(b));
+console.log("names : ", names);
