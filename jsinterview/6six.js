@@ -64,6 +64,25 @@ arr.forEach((element , index , array ) =>console.log(element , index , array ))
 
 
 // searching in array 
-arr = [12,4,6,34,65,23,56,89];
+arr = [12,4,6,34,65,23,56,89,12,29];
 console.log(arr.find(e=> e===65))
+console.log(arr.findIndex(e=> e===65))
 console.log(arr.find(e=> e===650))
+console.log(arr.findIndex(e=> e===650))
+console.log(arr.findLastIndex(e=> e===12))
+
+// filter method 
+console.log(arr.filter(e=> e===12))
+
+// reduce method 
+arr = [10,20,10,30,10,40,89,10,100,90,1000,89,56,74,72,63,93]
+const array1 = arr.reduce((accumulator , element , index )=>{
+    if ( element === 10){
+        const obj = {
+            [`${index}`] : element
+        }
+        accumulator.push(obj)
+    }
+    return accumulator
+} , [])
+console.log("Array1 = " , array1)
