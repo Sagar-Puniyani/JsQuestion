@@ -1,0 +1,2 @@
+const arr = []
+%DebugPrint(arr)
