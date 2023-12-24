@@ -4,19 +4,16 @@
  */
 
 function memoize(fn) {
-    let arguments , ans;
+    let cache = {}
     return function(...args) {
-        console.log("arguments2 : " , arguments);
-        console.log("type arguments2 : " ,  arguments instanceof Array);
-        console.log("ans : " , ans);
-        arguments = Array(arguments)
-        if (arguments != args){
-            arguments = [...args]
-            console.log("arguments : " , arguments);
-            ans =  fn(...arguments);
-            return ans
+        let key = JSON.stringify(args)
+        if (key in cache){
+            return cache[key];
         }
-        return ans
+        else{
+            cache[key] = fn(...args);
+            return cache[key];
+        }
     }
 }
 
