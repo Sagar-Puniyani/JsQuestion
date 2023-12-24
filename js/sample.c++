@@ -21,10 +21,10 @@ int main()
     struct mystruct st;
     union Onion Ojh;
 
-    printf("Union : %d \n", sizeof(Ojh));
-    printf("struct : %d  ", sizeof(st));
-    printf("\nsize is char[16] : %d" , sizeof(char[16]));
-    printf("\nSizeof float : %d" , sizeof(float));
+    printf("Union : %llu \n", sizeof(Ojh));
+    printf("struct : %llu  ", sizeof(st));
+    printf("\nsize is char[16] : %llu" , sizeof(char[16]));
+    printf("\nSizeof float : %llu" , sizeof(float));
     
     return 0;
 }
