@@ -5,7 +5,13 @@
  * @return {Function}
  */
 var cancellable = function(fn, args, t) {
-    
+    const cancelFn = function (){
+        clearTimeout(timer);
+    };
+    const timer = setTimeout(()=>{
+        fn(...args)
+    }, t);
+    return cancelFn ;
 };
 
 
@@ -14,6 +20,7 @@ const result = [];
 const fn = (x) => x * 5;
 const args = [2], t = 20, cancelTimeMs = 50;
 const start = performance.now();
+console.log("start " , start );
 const log = (...argsArr) => {
     const diff = Math.floor(performance.now() - start);
         result.push({"time": diff, "returned": fn(...argsArr)});
