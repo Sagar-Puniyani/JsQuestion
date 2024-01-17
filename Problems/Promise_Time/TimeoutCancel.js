@@ -5,20 +5,23 @@
  * @return {Function}
  */
 var cancellable = function(fn, args, t) {
-    const cancelFn = function (){
-        clearTimeout(timer);
-    };
-    const timer = setTimeout(()=>{
-        fn(...args)
-    }, t);
-    return cancelFn ;
+    let timerId =  undefined;
+    console.log('Type of Variable:', typeof timerId);
+    
+    fn(...args)
+    timerId = setInterval( ()=> fn(...args) , t );
+    console.log('Type of Variable:', typeof timerId);
+    // console.log("timerId = " , timerId );
+    
+    const cancelFn = () => clearTimeout(timerId)
+    return cancelFn;
 };
 
 
 const result = [];
 
-const fn = (x) => x * 5;
-const args = [2], t = 20, cancelTimeMs = 50;
+const fn = (x) => 2 * x;
+const args = [ 4 ], t = 35, cancelTimeMs = 190;
 const start = performance.now();
 console.log("start " , start );
 const log = (...argsArr) => {
