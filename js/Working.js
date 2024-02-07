@@ -55,3 +55,18 @@ fs.readFile('6six.js' , 'utf-8' , ()=>{
 })
 
 console.log("hello From Top Level ");
+
+const { PerformanceObserver, performance } = require('perf_hooks');
+
+const obs = new PerformanceObserver((items) => {
+    console.log(items.getEntries()[0].name + ' duration: ' + items.getEntries()[0].duration + 'ms');
+    performance.clearMarks();
+});
+obs.observe({ entryTypes: ['measure'] });
+
+performance.mark('crypto-start');
+
+// Your crypto code here
+
+performance.mark('crypto-end');
+performance.measure('crypto-duration', 'crypto-start', 'crypto-end');
